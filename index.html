@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Character encoding -->
+    <meta charset="UTF-8" />
+
+    <!-- Make the game scale properly on all screen sizes -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <title>Game</title>
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        font-family: "Press Start 2P", cursive;
+      }
+
+      #game-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: #000;
+        display: none;
+      }
+      #game-canvas {
+        background-image: url(./bg.png);
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        background-attachment: fixed;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+
+      #score {
+        z-index: 2;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        color: white;
+        font-size: 24px;
+      }
+
+      #health {
+        z-index: 2;
+        position: absolute;
+        top: 10px;
+        left: 250px;
+        color: white;
+        font-size: 24px;
+      }
+
+      #GameStarter {
+        position: absolute;
+        top: 40%;
+        left: 40%;
+        background-image: url("playButton.png");
+        width: 400px;
+        height: 132px;
+      }
+
+      #GameStarter:hover {
+        background-image: url("playButtonHover.png");
+      }
+
+      #left {
+        position: absolute;
+        top: 10vh;
+        left: 60vw;
+
+        background-color: transparent;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: none;
+        -webkit-touch-callout: none;
+      }
+
+      #up {
+        position: absolute;
+        top: 10vh;
+        left: 70vw;
+
+        background-color: transparent;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: none;
+        -webkit-touch-callout: none;
+      }
+
+      #right {
+        position: absolute;
+        top: 10vh;
+        left: 80vw;
+
+        background-color: transparent;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: none;
+        -webkit-touch-callout: none;
+      }
+
+      h1 {
+        position: absolute;
+        top: 8%;
+        left: 40%;
+        width: 200px;
+      }
+
+      .mute {
+        position: absolute;
+        top: 20vh;
+        left: 90vw;
+        outline: none;
+        border: none;
+        z-index: 10;
+        width: 100px;
+        height: 100px;
+        background-color: transparent;
+        font-size: 24px;
+      }
+
+      .muteog {
+        position: absolute;
+        top: 20vh;
+        left: 90vw;
+        outline: none;
+        border: none;
+        z-index: 10;
+        width: 100px;
+        height: 100px;
+        background-color: transparent;
+        font-size: 24px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div
+      id="HomePage"
+      style="
+        z-index: 3;
+        width: 100vw;
+        height: 100vh;
+        background-image: url(&quot;bg.gif&quot;);
+        background-size: cover;
+      "
+    >
+      <h1><img src="Title.png" alt="The Plauge" /></h1>
+
+      <button id="GameStarter"></button>
+
+      <button class="muteog" id="mute2">🔊</button>
+    </div>
+
+    <div id="game-container">
+      <p id="score">score: 0</p>
+      <p id="health">health: 100</p>
+      <button class="movmentButtons" id="left">
+        <img src="leftArrow.png" width="100px" height="100px" />
+      </button>
+      <button class="movmentButtons" id="up">
+        <img src="upArrow.png" width="100px" height="100px" />
+      </button>
+      <button class="movmentButtons" id="right">
+        <img src="rightArrow.png" width="100px" height="100px" />
+      </button>
+      <button class="mute" id="mute">🔊</button>
+      <canvas id="game-canvas"></canvas>
+      <audio id="music" loop autoplay>
+        <source src="gameMusic.mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
